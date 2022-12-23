@@ -1,0 +1,12 @@
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\bin\Debug\net6.0\StarWars.Infra.deps.json
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\bin\Debug\net6.0\StarWars.Infra.dll
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\bin\Debug\net6.0\StarWars.Infra.pdb
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.csproj.AssemblyReference.cache
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.AssemblyInfoInputs.cache
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.AssemblyInfo.cs
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.csproj.CoreCompileInputs.cache
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.dll
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\refint\StarWars.Infra.dll
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.pdb
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\ref\StarWars.Infra.dll
