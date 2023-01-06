@@ -275,6 +275,19 @@
             "rid": "win"
           }
         }
+      },
+      "StarWars.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2"
+        },
+        "compile": {
+          "bin/placeholder/StarWars.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StarWars.Domain.dll": {}
+        }
       }
     }
   },
@@ -781,6 +794,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "StarWars.Domain/1.0.0": {
+      "type": "project",
+      "path": "../StarWars.Domain/StarWars.Domain.csproj",
+      "msbuildProject": "../StarWars.Domain/StarWars.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -788,6 +806,7 @@
       "Dapper >= 2.0.123",
       "Dapper.Contrib >= 2.0.78",
       "Newtonsoft.Json >= 13.0.2",
+      "StarWars.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "System.Data.SqlClient >= 4.8.5"
     ]
@@ -818,7 +837,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj": {
+              "projectPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

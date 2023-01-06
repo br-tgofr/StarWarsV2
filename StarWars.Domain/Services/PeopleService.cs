@@ -1,15 +1,21 @@
 ﻿using StarWars.Api.Models;
-using StarWars.Infra.Acl;
-using StarWars.Infra.Data;
+using StarWars.Domain.Interface;
 
 namespace StarWars.Api.Services
 {
-    public class PeopleService
+    public class PeopleService : IPeopleService
+
     {
+        private readonly IPeopleRepository peopleRepository;
+        private readonly IPeopleAcl peopleAcl;
+        public PeopleService(IPeopleRepository peopleRepository, IPeopleAcl peopleAcl)
+        {
+            this.peopleRepository = peopleRepository;
+            this.peopleAcl = peopleAcl;
+        }
         public async Task<People> GetPeople(int id)
         {
-            var peopleRepo = new PeopleRepository();
-            var peopleEntitie = await peopleRepo.FindPeopleById(id);
+            var peopleEntitie = await peopleRepository.FindPeopleById(id);
 
             if (peopleEntitie != null)
             {
@@ -17,13 +23,12 @@ namespace StarWars.Api.Services
             }
             else
             {
-                var peopleAcl = await new PeopleAcl().GetPeopleAcl(id);
+                var result = await peopleAcl.GetPeopleAcl(id);
 
-                if (peopleAcl is not null)
+                if (result is not null)
                 {
-                    peopleAcl.Id = id;
-                    await peopleRepo.SavePeople(peopleAcl);
-                    return People.Map(peopleAcl);
+                    await peopleRepository.SavePeople(result, id);
+                    return People.Map(result);
                 }
                 else
                 {

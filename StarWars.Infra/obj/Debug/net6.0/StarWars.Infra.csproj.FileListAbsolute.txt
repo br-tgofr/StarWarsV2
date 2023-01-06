@@ -10,3 +10,6 @@ C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.In
 C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\refint\StarWars.Infra.dll
 C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.pdb
 C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\ref\StarWars.Infra.dll
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\bin\Debug\net6.0\StarWars.Domain.dll
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\bin\Debug\net6.0\StarWars.Domain.pdb
+C:\Users\tiago\source\repos\StarWars\StarWars.Infra\obj\Debug\net6.0\StarWars.Infra.csproj.CopyComplete

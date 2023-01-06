@@ -10,6 +10,7 @@
         "dependencies": {
           "Newtonsoft.Json": "13.0.2",
           "StarWars.Domain": "1.0.0",
+          "StarWars.Infra": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -167,7 +168,7 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "StarWars.Domain/1.0.0": {
         "dependencies": {
-          "StarWars.Infra": "1.0.0"
+          "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
           "StarWars.Domain.dll": {}
@@ -178,6 +179,7 @@
           "Dapper": "2.0.123",
           "Dapper.Contrib": "2.0.78",
           "Newtonsoft.Json": "13.0.2",
+          "StarWars.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Data.SqlClient": "4.8.5"
         },

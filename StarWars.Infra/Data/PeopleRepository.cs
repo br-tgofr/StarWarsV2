@@ -1,34 +1,72 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using StarWars.Api.Models;
+using StarWars.Domain.Interface;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static StarWars.Infra.Data.IDbConnection;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace StarWars.Infra.Data
 {
-    public class PeopleRepository
+    public class PeopleRepository : IPeopleRepository
     {
-        private WebApplication app;
+        private readonly IConfiguration configuration;
+        public PeopleRepository(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
         public async Task<PeopleEntity> FindPeopleById(int id)
         {
-            app.MapGet($"{id}", async (GetConnection connectionGetter) =>
+            using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
             {
-                using var con = await connectionGetter();
-                return con.GetAll<PeopleEntity>().ToList();
-            });
-
-            return null;
+                var getPeopleresult = await connection.QueryAsync<PeopleEntity>(PeopleSlqStatement.GetPeopleIdQueryBase(), new { id });
+                
+                if (getPeopleresult is not null)
+                {
+                    return getPeopleresult.FirstOrDefault();
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
 
-        public async Task SavePeople(PeopleEntity peopleAcl)
+        public async Task<PeopleEntity> SavePeople(PeopleEntity peopleResult, int id)
         {
+            using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
+            {
+                var result = await connection.ExecuteScalarAsync(PeopleSlqStatement.InsertPeopleQueryBase(), new
+                {
+                    peopleResult.Id,
+                    peopleResult.Name,
+                    peopleResult.Height,
+                    peopleResult.Mass,
+                    peopleResult.HairColor,
+                    peopleResult.SkinColor,
+                    peopleResult.EyeColor,
+                    peopleResult.BirthYear,
+                    peopleResult.Gender,
+                    peopleResult.Homeworld,
+                    peopleResult.Films,
+                    //peopleResult.Species,
+                    //peopleResult.Vehicles,
+                    // peopleResult.Starships,
+                    peopleResult.Created,
+                    peopleResult.Edited,
+                    peopleResult.Url
+                });
+                
+                var bulkInsert = new List<Object>();
 
+                foreach (var films in peopleResult.Films)
+                {
+                    bulkInsert.Add(films);
+                }
+            }
+            return null;   
         }
     }
 }

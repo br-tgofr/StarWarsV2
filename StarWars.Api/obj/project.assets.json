@@ -280,7 +280,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "StarWars.Infra": "1.0.0"
+          "Newtonsoft.Json": "13.0.2"
         },
         "compile": {
           "bin/placeholder/StarWars.Domain.dll": {}
@@ -296,6 +296,7 @@
           "Dapper": "2.0.123",
           "Dapper.Contrib": "2.0.78",
           "Newtonsoft.Json": "13.0.2",
+          "StarWars.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -827,6 +828,7 @@
     "net6.0": [
       "Newtonsoft.Json >= 13.0.2",
       "StarWars.Domain >= 1.0.0",
+      "StarWars.Infra >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -859,6 +861,9 @@
           "projectReferences": {
             "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj": {
               "projectPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj"
+            },
+            "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Infra\\StarWars.Infra.csproj": {
+              "projectPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Infra\\StarWars.Infra.csproj"
             }
           }
         }

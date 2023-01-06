@@ -4,6 +4,67 @@
     "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Infra\\StarWars.Infra.csproj": {}
   },
   "projects": {
+    "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj",
+        "projectName": "StarWars.Domain",
+        "projectPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj",
+        "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Infra\\StarWars.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +88,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj": {
+                "projectPath": "C:\\Users\\tiago\\source\\repos\\StarWars\\StarWars.Domain\\StarWars.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

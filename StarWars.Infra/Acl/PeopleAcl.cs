@@ -1,15 +1,10 @@
 ﻿using Newtonsoft.Json;
 using StarWars.Api.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using StarWars.Domain.Interface;
 
 namespace StarWars.Infra.Acl
 {
-    public class PeopleAcl
+    public class PeopleAcl : IPeopleAcl
     {
         public async Task<PeopleEntity> GetPeopleAcl(int id)
         {
@@ -19,6 +14,11 @@ namespace StarWars.Infra.Acl
                 var response = await httpCliente.GetAsync($"people/{id}/");
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 var getPeople = JsonConvert.DeserializeObject<PeopleEntity>(jsonResponse);
+
+                if (getPeople.Id == 0)
+                {
+                    getPeople.Id = id;
+                }
 
                 return getPeople;
             }
