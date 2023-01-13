@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using StarWars.Domain.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace StarWars.Api.Models
@@ -39,15 +40,6 @@ namespace StarWars.Api.Models
 
         [JsonProperty("films")]
         public List<string> Films { get; set; }
-
-        [JsonProperty("species")]
-        public List<string> Species { get; set; }
-
-        [JsonProperty("vehicles")]
-        public List<string> Vehicles { get; set; }
-
-        [JsonProperty("starships")]
-        public List<string> Starships { get; set; }
 
         [JsonProperty("created")]
         public DateTime Created { get; set; }

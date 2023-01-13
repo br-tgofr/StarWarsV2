@@ -1,5 +1,6 @@
 using StarWars.Api.Services;
 using StarWars.Domain.Interface;
+using StarWars.Domain.Services;
 using StarWars.Infra.Acl;
 using StarWars.Infra.Data;
 
@@ -15,6 +16,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPeopleService, PeopleService>();
 builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
 builder.Services.AddScoped<IPeopleAcl, PeopleAcl>();
+builder.Services.AddScoped<IFilmsService, FilmsService>();
+builder.Services.AddScoped<IFilmsRepository, FilmsRepository>();
+builder.Services.AddScoped<IFilmsAcl, FilmsAcl>();
+builder.Services.AddScoped<IPeopleFilmsRepository, PeopleFilmsRepository>();
 
 var app = builder.Build();
 

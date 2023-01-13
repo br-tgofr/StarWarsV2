@@ -29,9 +29,20 @@ namespace StarWars.Api.Services
             }
         }
 
-        private IActionResult CreatedAtAction(object value, int id)
+        [HttpGet]
+        [Route("peopleFilms/{id}")]
+        public async Task<IActionResult> GetPeopleFilmsAsync([FromRoute] int id)
         {
-            throw new NotImplementedException();
+            var people = await peopleService.GetPeopleFilms(id);
+
+            if (people is null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(people);
+            }
         }
     }
 }

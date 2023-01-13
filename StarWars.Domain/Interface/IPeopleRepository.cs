@@ -10,6 +10,7 @@ namespace StarWars.Domain.Interface
     public interface IPeopleRepository
     {
         public Task<PeopleEntity> FindPeopleById(int id);
-        public Task<PeopleEntity> SavePeople(PeopleEntity peopleResult, int id);
+        public Task<PeopleEntity> SavePeople(PeopleEntity peopleResult);
+        public Task<IEnumerable<PeopleEntity>> FindPeopleFilmsById(int id);
     }
 }

@@ -8,10 +8,10 @@ namespace StarWars.Infra.Acl
     {
         public async Task<PeopleEntity> GetPeopleAcl(int id)
         {
-            using (var httpCliente = new HttpClient())
+            using (var httpClient = new HttpClient())
             {
-                httpCliente.BaseAddress = new Uri("https://swapi.dev/api/");
-                var response = await httpCliente.GetAsync($"people/{id}/");
+                httpClient.BaseAddress = new Uri("https://swapi.dev/api/");
+                var response = await httpClient.GetAsync($"people/{id}/");
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 var getPeople = JsonConvert.DeserializeObject<PeopleEntity>(jsonResponse);
 

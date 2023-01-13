@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using StarWars.Domain.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace StarWars.Api.Models
@@ -36,18 +37,9 @@ namespace StarWars.Api.Models
 
         [JsonProperty("homeworld")]
         public string Homeworld { get; set; }
-
+        
         [JsonProperty("films")]
         public List<string> Films { get; set; }
-
-        [JsonProperty("species")]
-        public List<string> Species { get; set; }
-
-        [JsonProperty("vehicles")]
-        public List<string> Vehicles { get; set; }
-
-        [JsonProperty("starships")]
-        public List<string> Starships { get; set; }
 
         [JsonProperty("created")]
         public DateTime Created { get; set; }
@@ -56,7 +48,7 @@ namespace StarWars.Api.Models
         public DateTime Edited { get; set; }
 
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string Url { get; set; }        
 
         internal static People Map(PeopleEntity peopleEntitie)
         {
@@ -72,9 +64,6 @@ namespace StarWars.Api.Models
             people.Gender    = peopleEntitie.Gender;
             people.Homeworld = peopleEntitie.Homeworld;
             people.Films     = peopleEntitie.Films;
-            people.Species   = peopleEntitie.Species;
-            people.Vehicles  = peopleEntitie.Vehicles;
-            people.Starships = peopleEntitie.Starships;
             people.Created   = peopleEntitie.Created;
             people.Edited    = peopleEntitie.Edited;
             people.Url       = peopleEntitie.Url;

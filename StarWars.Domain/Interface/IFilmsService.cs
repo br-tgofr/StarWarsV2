@@ -1,4 +1,5 @@
 ﻿using StarWars.Api.Models;
+using StarWars.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace StarWars.Domain.Interface
 {
-    public interface IPeopleService
+    public interface IFilmsService
     {
-        public Task<People> GetPeople(int id);
-        public Task<IEnumerable<PeopleEntity>> GetPeopleFilms(int id);
+        public Task<Films> GetFilm(int id);
     }
 }

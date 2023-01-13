@@ -3,6 +3,7 @@ using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Configuration;
 using StarWars.Api.Models;
 using StarWars.Domain.Interface;
+using StarWars.Domain.Models;
 using System;
 using System.Data.SqlClient;
 using System.Reflection;
@@ -21,11 +22,11 @@ namespace StarWars.Infra.Data
         {
             using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
             {
-                var getPeopleresult = await connection.QueryAsync<PeopleEntity>(PeopleSlqStatement.GetPeopleIdQueryBase(), new { id });
+                var getPeopleResult = await connection.QueryAsync<PeopleEntity>(PeopleSlqStatement.GetPeopleIdQueryBase(), new { id });
                 
-                if (getPeopleresult is not null)
+                if (getPeopleResult is not null)
                 {
-                    return getPeopleresult.FirstOrDefault();
+                    return getPeopleResult.FirstOrDefault();
                 }
                 else
                 {
@@ -33,8 +34,23 @@ namespace StarWars.Infra.Data
                 }
             }
         }
+        public async Task<IEnumerable<PeopleEntity>> FindPeopleFilmsById(int id)
+        {
+            using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
+            {
+                var getPeopleResult = await connection.QueryAsync<PeopleEntity>(PeopleSlqStatement.GetPeopleFilmsQueryBase(), new { id });
 
-        public async Task<PeopleEntity> SavePeople(PeopleEntity peopleResult, int id)
+                if (getPeopleResult is not null)
+                {
+                    return getPeopleResult;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        public async Task<PeopleEntity> SavePeople(PeopleEntity peopleResult)
         {
             using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
             {
@@ -50,23 +66,12 @@ namespace StarWars.Infra.Data
                     peopleResult.BirthYear,
                     peopleResult.Gender,
                     peopleResult.Homeworld,
-                    peopleResult.Films,
-                    //peopleResult.Species,
-                    //peopleResult.Vehicles,
-                    // peopleResult.Starships,
                     peopleResult.Created,
                     peopleResult.Edited,
                     peopleResult.Url
                 });
-                
-                var bulkInsert = new List<Object>();
-
-                foreach (var films in peopleResult.Films)
-                {
-                    bulkInsert.Add(films);
-                }
             }
-            return null;   
+            return null;
         }
     }
 }
