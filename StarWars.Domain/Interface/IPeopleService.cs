@@ -10,6 +10,6 @@ namespace StarWars.Domain.Interface
     public interface IPeopleService
     {
         public Task<People> GetPeople(int id);
-        public Task<IEnumerable<PeopleEntity>> GetPeopleFilms(int id);
+        public Task<People> GetPeopleFilms(int id);
     }
 }

@@ -11,6 +11,6 @@ namespace StarWars.Domain.Interface
     {
         public Task<PeopleEntity> FindPeopleById(int id);
         public Task<PeopleEntity> SavePeople(PeopleEntity peopleResult);
-        public Task<IEnumerable<PeopleEntity>> FindPeopleFilmsById(int id);
+        public Task<PeopleEntity> FindPeopleFilmsById(int id);
     }
 }

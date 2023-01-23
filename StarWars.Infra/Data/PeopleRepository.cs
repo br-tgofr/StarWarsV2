@@ -23,18 +23,15 @@ namespace StarWars.Infra.Data
             using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
             {
                 var getPeopleResult = await connection.QueryAsync<PeopleEntity>(PeopleSlqStatement.GetPeopleIdQueryBase(), new { id });
-                
+
                 if (getPeopleResult is not null)
                 {
                     return getPeopleResult.FirstOrDefault();
                 }
-                else
-                {
-                    return null;
-                }
+                return null;
             }
         }
-        public async Task<IEnumerable<PeopleEntity>> FindPeopleFilmsById(int id)
+        public async Task<PeopleEntity> FindPeopleFilmsById(int id)
         {
             using (var connection = new SqlConnection(configuration.GetSection("StarWarsApiConnection").Value.ToString()))
             {
@@ -42,7 +39,7 @@ namespace StarWars.Infra.Data
 
                 if (getPeopleResult is not null)
                 {
-                    return getPeopleResult;
+                    return getPeopleResult.FirstOrDefault();
                 }
                 else
                 {

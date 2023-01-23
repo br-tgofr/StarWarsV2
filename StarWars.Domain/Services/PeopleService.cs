@@ -63,14 +63,13 @@ namespace StarWars.Api.Services
                 }
             }
         }
-        public async Task<IEnumerable<PeopleEntity>> GetPeopleFilms(int id)
+        public async Task<People> GetPeopleFilms(int id)
         {
-            IEnumerable<PeopleEntity> peopleEntitie = await peopleRepository.FindPeopleFilmsById(id);
+            var peopleEntitie = await peopleRepository.FindPeopleFilmsById(id);
 
             if (peopleEntitie is not null)
             {
-                //return People.Map(peopleEntitie);
-                return peopleEntitie.ToList();
+                return People.Map(peopleEntitie);
             }
             else
             {
